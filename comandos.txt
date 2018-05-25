@@ -1,0 +1,19 @@
+MATCH (n:Node) n.my_key
+MATCH (n) WHERE EXISTS(n.foo) REMOVE n.foo
+MATCH ()-[r]->() WHERE EXISTS(r.foo) REMOVE r.foo
+
+
+
+
+delete label
+    MATCH (n:Passageiro) DELETE n
+
+delete relação 
+    MATCH ()-[r:RELEASED]-() DELETE r
+        https://www.quackit.com/neo4j/tutorial/neo4j_delete_a_relationship_using_cypher.cfm
+        
+        
+MATCH (n:Node) n.my_key
+MATCH (n) WHERE EXISTS(n.foo) REMOVE n.foo
+MATCH (n) REMOVE n.foo
+

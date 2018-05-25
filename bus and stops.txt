@@ -1,0 +1,21 @@
+CREATE (a:Stop {name:'A'}),
+       (b:Stop {name:'B'}),
+       (c:Stop {name:'C'}),
+       (d:Stop {name:'D'}),
+
+       (a)-[:NEXT {distance:1}]->(b),
+       (b)-[:NEXT {distance:2}]->(c),
+       (c)-[:NEXT {distance:3}]->(d),
+
+       (b1:Bus {id:1}),
+       (b2:Bus {id:2}),
+       (b3:Bus {id:3}),
+
+       (b1)-[:STOPS_AT]->(a),
+       (b1)-[:STOPS_AT]->(b),
+       (b2)-[:STOPS_AT]->(a),
+       (b2)-[:STOPS_AT]->(b),
+       (b2)-[:STOPS_AT]->(c),
+       (b3)-[:STOPS_AT]->(b),
+       (b3)-[:STOPS_AT]->(c),
+       (b3)-[:STOPS_AT]->(d);

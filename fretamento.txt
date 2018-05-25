@@ -1,0 +1,213 @@
+CREATE (Neodent:Cliente {nome: 'Neodent', km_rota:40, tempo_rota:1.5, distancia_passageiro: 300})
+CREATE (Renaut:Cliente {nome: 'Renaut', km_rota:30, tempo_rota:2, distancia_passageiro: 500})
+
+CREATE (Rota1:Rota {nome: "Rota1", km_rota:40, tempo_rota:1.5, distancia_passageiro: 300, tipo_rota: "regular"})
+CREATE (Rota2:Rota {nome: "Rota2", km_rota:65, tempo_rota:3.5, distancia_passageiro: 500, tipo_rota: "regular"})
+
+CREATE (AndreCamilo:Passageiro {nome: "Andre Camilo", endereco: "Rua Adão Camilo", matricula: 12345})
+CREATE (DariVila:Passageiro {nome: "Dari Vila", endereco: "Rua Emiliano", matricula: 56254})
+CREATE (JeanSilva:Passageiro {nome: "Jean Silva", endereco: "Rua Alfrasio Correia", matricula: 456225})
+
+CREATE (Regular:TipoRota {nome: "Regular"})
+CREATE (Temporaria:TipoRota {nome: "Temporaria"})
+
+CREATE (Van:TipoVeiculo {nome: "Onibus"})
+CREATE (Onibus:TipoVeiculo {nome: "Van"})
+CREATE (MicroOnibus:TipoVeiculo {nome: "Micro-onibus"})
+
+CREATE (Manha:Turno {nome: "Manha", Hora: "8:30"})
+CREATE (Tarde:Turno {nome: "Manha", Hora: "13:00"})
+CREATE (Noite:Turno {nome: "Noite", Hora: "18:45"})
+
+CREATE (AndreCamilo)-[:Pertence {regra:['Kevin Lomax']}]->(Manha)
+CREATE (AndreCamilo)-[r:TreabalhaEm {regra:['Trabalha em']}]->(Neodent)
+CREATE (AndreCamilo)-[r:TreabalhaEm]->(Neodent)
+CREATE (AndreCamilo)-[:Pertence]->(Manha)
+CREATE (DariVila)-[:Pertence]->(Manha)
+CREATE (JeanSilva)-[:Pertence]->(Manha)
+
+MATCH (a1:Rota) WHERE a1.nome = "Rota1" CREATE (a1)-[r:Contem]->(p1:Ponto {lat: "-25406516", lon: "-49252593", seq: 1})
+MATCH (a2:Rota) WHERE a2.nome = "Rota1" CREATE (a2)-[r:Contem]->(p2:Ponto {lat: "-25409849", lon: "-49255512", seq: 2})
+MATCH (a3:Rota) WHERE a3.nome = "Rota1" CREATE (a3)-[r:Contem]->(p3:Ponto {lat: "-25413028", lon: "-49258773", seq: 3})
+MATCH (a4:Rota) WHERE a4.nome = "Rota1" CREATE (a4)-[r:Contem]->(p4:Ponto {lat: "-25416129", lon: "-49261606", seq: 4})
+MATCH (a5:Rota) WHERE a5.nome = "Rota1" CREATE (a5)-[r:Contem]->(p5:Ponto {lat: "-25419385", lon: "-49264610", seq: 5})
+MATCH (a6:Rota) WHERE a6.nome = "Rota1" CREATE (a6)-[r:Contem]->(p6:Ponto {lat: "-25423959", lon: "-49268558", seq: 6})
+MATCH (a7:Rota) WHERE a7.nome = "Rota1" CREATE (a7)-[r:Contem]->(p7:Ponto {lat: "-25430005", lon: "-49267528", seq: 7})
+MATCH (a8:Rota) WHERE a8.nome = "Rota1" CREATE (a8)-[r:Contem]->(p8:Ponto {lat: "-25437369", lon: "-49266584", seq: 8})
+MATCH (a9:Rota) WHERE a9.nome = "Rota1" CREATE (a9)-[r:Contem]->(p9:Ponto {lat: "-25438764", lon: "-49268214", seq: 9})
+MATCH (a10:Rota) WHERE a10.nome = "Rota1" CREATE (a10)-[r:Contem]->(p10:Ponto {lat: "-25442872", lon: "-49280660", seq: 10})
+MATCH (a11:Rota) WHERE a11.nome = "Rota1" CREATE (a11)-[r:Contem]->(p11:Ponto {lat: "-25444887", lon: "-49285209", seq: 11})
+MATCH (a12:Rota) WHERE a12.nome = "Rota1" CREATE (a12)-[r:Contem]->(p12:Ponto {lat: "-25452559", lon: "-49288213", seq: 12})
+MATCH (a13:Rota) WHERE a13.nome = "Rota1" CREATE (a13)-[r:Contem]->(p13:Ponto {lat: "-25457287", lon: "-49288900", seq: 13})
+MATCH (a14:Rota) WHERE a14.nome = "Rota1" CREATE (a14)-[r:Contem]->(p14:Ponto {lat: "-25461007", lon: "-49290015", seq: 14})
+MATCH (a15:Rota) WHERE a15.nome = "Rota1" CREATE (a15)-[r:Contem]->(p15:Ponto {lat: "-25464726", lon: "-49291732", seq: 15})
+MATCH (a16:Rota) WHERE a16.nome = "Rota1" CREATE (a16)-[r:Contem]->(p16:Ponto {lat: "-25467439", lon: "-49292934", seq: 16})
+MATCH (a17:Rota) WHERE a17.nome = "Rota1" CREATE (a17)-[r:Contem]->(p17:Ponto {lat: "-25476195", lon: "-49292419", seq: 17})
+
+MATCH (a1:Ponto)  WHERE (a1.lat  = "-25406516" and a1.lon =  "-49252593")      
+MATCH (a2:Ponto)  WHERE (a2.lat  = "-25409849" and a2.lon =  "-49255512")
+MATCH (a3:Ponto)  WHERE (a3.lat  = "-25413028" and a3.lon =  "-49258773")
+MATCH (a4:Ponto)  WHERE (a4.lat  = "-25416129" and a4.lon =  "-49261606")
+MATCH (a5:Ponto)  WHERE (a5.lat  = "-25419385" and a5.lon =  "-49264610")
+MATCH (a6:Ponto)  WHERE (a6.lat  = "-25423959" and a6.lon =  "-49268558")
+MATCH (a7:Ponto)  WHERE (a7.lat  = "-25430005" and a7.lon =  "-49267528")
+MATCH (a8:Ponto)  WHERE (a8.lat  = "-25437369" and a8.lon =  "-49266584")
+MATCH (a9:Ponto)  WHERE (a9.lat  = "-25438764" and a9.lon =  "-49268214")
+MATCH (a10:Ponto) WHERE (a10.lat = "-25442872" and a10.lon =  "-49280660")
+MATCH (a11:Ponto) WHERE (a11.lat = "-25444887" and a11.lon =  "-49285209")
+MATCH (a12:Ponto) WHERE (a12.lat = "-25452559" and a12.lon =  "-49288213")
+MATCH (a13:Ponto) WHERE (a13.lat = "-25457287" and a13.lon =  "-49288900")
+MATCH (a14:Ponto) WHERE (a14.lat = "-25461007" and a14.lon =  "-49290015")
+MATCH (a15:Ponto) WHERE (a15.lat = "-25464726" and a15.lon =  "-49291732")
+MATCH (a16:Ponto) WHERE (a16.lat = "-25467439" and a16.lon =  "-49292934")
+MATCH (a17:Ponto) WHERE (a17.lat = "-25476195" and a17.lon =  "-49292419")
+
+MATCH (a1:Ponto)  WHERE (a1.seq = 1) 
+MATCH (a2:Ponto)  WHERE (a2.seq = 2)
+MATCH (a3:Ponto)  WHERE (a3.seq = 3)
+MATCH (a4:Ponto)  WHERE (a4.seq = 4)
+MATCH (a5:Ponto)  WHERE (a5.seq = 5)
+MATCH (a6:Ponto)  WHERE (a6.seq = 6)
+MATCH (a7:Ponto)  WHERE (a7.seq = 7)
+MATCH (a8:Ponto)  WHERE (a8.seq = 8)
+MATCH (a9:Ponto)  WHERE (a9.seq = 9)
+MATCH (a10:Ponto) WHERE (a10.seq = 10)
+MATCH (a11:Ponto) WHERE (a11.seq = 11)
+MATCH (a12:Ponto) WHERE (a12.seq = 12)
+MATCH (a13:Ponto) WHERE (a13.seq = 13)
+MATCH (a14:Ponto) WHERE (a14.seq = 14)
+MATCH (a15:Ponto) WHERE (a15.seq = 15)
+MATCH (a16:Ponto) WHERE (a16.seq = 16)
+MATCH (a17:Ponto) WHERE (a17.seq = 17)
+CREATE (a1)-[r1:Proximo]->(a2)
+CREATE (a2)-[r2:Proximo]->(a3)
+CREATE (a3)-[r3:Proximo]->(a4)
+CREATE (a4)-[r4:Proximo]->(a5)
+CREATE (a5)-[r5:Proximo]->(a6)
+CREATE (a6)-[r6:Proximo]->(a7)
+CREATE (a7)-[r7:Proximo]->(a8)
+CREATE (a8)-[r8:Proximo]->(a9)
+CREATE (a9)-[r9:Proximo]->(a10)
+CREATE (a10)-[r10:Proximo]->(a11)
+CREATE (a11)-[r11:Proximo]->(a12)
+CREATE (a12)-[r12:Proximo]->(a13)
+CREATE (a13)-[r13:Proximo]->(a14)
+CREATE (a14)-[r14:Proximo]->(a15)
+CREATE (a15)-[r15:Proximo]->(a16)
+CREATE (a16)-[r16:Proximo]->(a17)
+
+MATCH (a:Ponto)
+MATCH (b:Rota)
+return a, b
+
+MATCH (a1:Ponto)  WHERE (a1.lat  = "-25423959" and a1.lon =  "-49268558") return a1
+MATCH (a2:Ponto)  WHERE (a2.lat  = "-25430005" and a2.lon =  "-49267528") return a2
+CREATE (a1)-[r:Proximo]->(a2)
+
+MATCH (a1:Ponto)  WHERE (a1.lat  = "-25464726" and a1.lon =  "-49291732")      
+MATCH (a2:Ponto)  WHERE (a2.lat  = "-25467439" and a2.lon =  "-49292934")
+MATCH (a1)-[r:Proximo]-(a2) DELETE r
+
+MATCH ()-[r:Proximo]-() DELETE r
+MATCH ()-[r:Contem]-() DELETE r
+MATCH (r:Ponto) DELETE r
+
+# rotas para clientes 
+MATCH (a:Rota), (b:Cliente) WHERE a.nome = "Rota1" or b.name = "Neodent" CREATE (b)-[r:Possui]->(a) RETURN a,b
+
+
+# passageiros para clientes 
+MATCH (a:Passageiro), (b:Cliente) WHERE a.nome = "Andre Camilo" or b.name = "Neodent" CREATE (A)-[r:TreabalhaEm]->(B) RETURN a,b
+MATCH (a:Passageiro), (b:Cliente) WHERE a.nome = "Dari Vila" or b.name = "Neodent" CREATE (a)-[r:TreabalhaEm]->(b) RETURN a,b
+MATCH (a:Passageiro), (b:Cliente) WHERE a.nome = "Jean Silva" or b.name = "Neodent" CREATE (a)-[r:TreabalhaEm]->(b) RETURN a,b
+
+
+
+##############################
+MATCH (n:Cliente) RETURN n.nome, n.km_rota, n.tempo_rota, n.distancia_passageiro
+
+##############################
+MATCH (a { name: 'Andres' })
+REMOVE a.tempo_maximo_rota
+RETURN a.name, a.age
+MERGE (carrie)-[:ACTED_IN]->(theMatrix)
+MERGE (carrie)-[:ACTED_IN]->(theMatrix)
+MERGE (carrie)-[:ACTED_IN]->(theMatrix)
+MATCH (hugo:Person {name: "Hugo Weaving"})
+
+
+###############################
+Hands on with the Geospatial data type
+
+Let’s update our Matrix graph to store some geospatial points. We’ll add (lat, long) coordinates for the place of birth of each of our actors:
+
+UNWIND [
+  {name: "Keanu Reeves", latitude: 33.888630, longitude: 35.495480},
+  {name: "Hugo Weaving", latitude: 7.401962, longitude: 3.917313},
+  {name: "Laurence Fishburne", latitude: 33.420696, longitude: -82.152374},
+  {name: "Carrie-Anne Moss", latitude: 49.246292, longitude: -123.116226}
+] AS person
+
+MATCH (p:Person {name: person.name})
+SET p.placeOfBirth = point({latitude: person.latitude, longitude: person.longitude})
+
+###############################
+Finding people born away from Seattle
+
+If we try to find people born far away from Seattle this query will not make use of an index because we’re trying to find points that live outside a bounded box.
+
+PROFILE
+WITH point({latitude: 47.608013, longitude: -122.335167}) AS seattle
+MATCH (p:Person)
+WHERE distance(p.placeOfBirth, seattle) > 200000
+RETURN p, distance(p.placeOfBirth, seattle)
+Comparing distances
+
+We can use the distance function to compare two points. For example, the following query finds the distance in meters between the places of birth of Keanu and Laurence:
+
+MATCH (keanu:Person {name: "Keanu Reeves"})
+MATCH (carrie:Person {name: "Laurence Fishburne"})
+RETURN distance(keanu.placeOfBirth, carrie.placeOfBirth)
+
+
+###############################
+Finding people born near Seattle
+
+We can write the following query to find the people born within 200km of Seattle.
+
+WITH point({latitude: 47.608013, longitude: -122.335167}) AS seattle
+MATCH (p:Person)
+WHERE distance(p.placeOfBirth, seattle) < 200000
+RETURN p, distance(p.placeOfBirth, seattle)
+If we prefix the query with the PROFILE key word we’ll see that the first operator is NodeIndexSeekByRange, which indicates that the spatial index was used:
+
+PROFILE
+WITH point({latitude: 47.608013, longitude: -122.335167}) AS seattle
+MATCH (p:Person)
+WHERE distance(p.placeOfBirth, seattle) < 200000
+RETURN p, distance(p.placeOfBirth, seattle)
+
+
+
+#############################
+Finding people born away from Seattle
+
+If we try to find people born far away from Seattle this query will not make use of an index because we’re trying to find points that live outside a bounded box.
+
+PROFILE
+WITH point({latitude: 47.608013, longitude: -122.335167}) AS seattle
+MATCH (p:Person)
+WHERE distance(p.placeOfBirth, seattle) > 200000
+RETURN p, distance(p.placeOfBirth, seattle)
+
+
+#############################
+Dados Acesso
+    Neo4j Browser: https://10-0-1-34-34134.neo4jsandbox.com/
+    Direct Neo4j HTTP: http://54.236.202.40:34134/browser/
+    Username: neo4j
+    Password: dump-manpower-soup
+    IP Address: 54.236.202.40
+    HTTP Port: 34134
+    Bolt Port: 34133
+    Expires: 2 days, 7 hours, 3 minutes
